@@ -12,16 +12,16 @@ class MenuList extends React.Component {
         this.props.menuRequsted();
         const {RestoService} = this.props;
         RestoService.getMenuItems()
-         .then(res => this.props.menuLoaded(res));
+         .then(res => this.props.menuLoaded(res.menu));
     }
-
+    
     render() {
         const {menuItems, loading, addedToCard} = this.props;
         
         if (loading) {
             return <Spinner/>
         }
-        
+
         return (
             <ul className="menu__list">
                 {

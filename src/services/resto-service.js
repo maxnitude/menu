@@ -1,5 +1,5 @@
 export default class RestoService {
-    _apiBase = 'http://localhost:3000';
+    _apiBase = 'https://maxnitude.github.io';
     
     async getResource (url) {
         const response = await fetch(`${this._apiBase}${url}`);
@@ -11,6 +11,6 @@ export default class RestoService {
     }
 
     async getMenuItems () {
-        return await this.getResource(`/menu/`);
+        return await this.getResource(`/menu/db.json`);
     }
 }

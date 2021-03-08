@@ -2,6 +2,7 @@
   "name": "resto",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://maxnitude.github.io/menu/",
   "dependencies": {
     "json-server": "^0.16.3",
     "node-sass": "^4.12.0",
