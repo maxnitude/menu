@@ -1,0 +1,11 @@
+.menu {
+    &__list {
+        width: 1400px;
+        margin: 60px auto 0;
+        padding: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+}
