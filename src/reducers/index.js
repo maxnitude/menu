@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
             const existingItem = state.itemsInCart.find(item => item.id === id);
             if (existingItem) {
                 existingItem.count++;
-                console.log(existingItem.count);
+                // console.log(existingItem.count);
                 return {
                     ...state,
                     itemsInCart: [
@@ -42,8 +42,8 @@ const reducer = (state = initialState, action) => {
                 url: item.url,
                 id: item.id,
                 count: 1,
-            }    
- 
+            }   
+            
             return {
                 ...state,
                 itemsInCart: [
@@ -66,6 +66,16 @@ const reducer = (state = initialState, action) => {
                 ],
                 total: state.total - delPrice*delCount
             }
+
+        case 'CHECK_ITEM_IN_CART':
+            const idy = action.payload;
+            const itemInCart = state.itemsInCart.find(item => item.id === idy);
+            itemInCart.added = true;
+            console.log(itemInCart);
+            console.log(state.itemsInCart);
+            return {
+                ...state,
+            };
 
         default:
             return state;

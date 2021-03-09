@@ -28,9 +28,17 @@ const deleteFromCard = (id, price, count) => {
     };
 };
 
+const isItemInCart = (id) => {
+    return {
+        type: 'CHECK_ITEM_IN_CART',
+        payload: id
+    };
+};
+
 export {
     menuLoaded,
     menuRequsted,
     addedToCard,
-    deleteFromCard
+    deleteFromCard,
+    isItemInCart
 };
