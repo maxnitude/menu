@@ -1,7 +1,8 @@
 import React from 'react';
 import './cart-table.scss';
 import {connect} from 'react-redux';
-import {deleteFromCard} from '../../actions/index'
+import {deleteFromCard} from '../../actions/index';
+import AddedButton from '../added-button/added-button'
 
 const CartTable = ({itemsInCart, deleteFromCard}) => {
     return (
@@ -16,6 +17,7 @@ const CartTable = ({itemsInCart, deleteFromCard}) => {
                             <div key={id} className="cart__item">
                             <img src={url} className="cart__item-img" alt={title}></img>
                             <div className="cart__item-title">{title}</div>
+                            <AddedButton item={item}/>
                             <div className="cart__item-title">{count} x {price}$</div>
                             <div className="cart__item-price">{count*price}$</div>
                             <div onClick={() => deleteFromCard(id, price, count)} className="cart__close">&times;</div>

@@ -7,17 +7,17 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'MENU_LOADED':
-            return {
-                ...state,
-                menu: action.payload,
-                loading: false
-            };
         case 'MENU_REQUESTED':
             return {
                 ...state,
                 menu: state.menu,
                 loading: true
+            };
+        case 'MENU_LOADED':
+            return {
+                ...state,
+                menu: action.payload,
+                loading: false
             };
         case 'ITEM_ADD_TO_CARD':
             const id = action.payload;
@@ -55,16 +55,25 @@ const reducer = (state = initialState, action) => {
 
         case 'ITEM_REMOVE_FROM_CARD':
             const idx = action.payload;
-            const delPrice = action.price;
-            const delCount = action.count;
-            const itemIndex = state.itemsInCart.findIndex(item => item.id === idx);    
+            const itemIndex = state.itemsInCart.findIndex(item => item.id === idx);
+            const delItem = state.itemsInCart.find(item => item.id === idx); 
+            if (delItem.count > 1) {
+                delItem.count--;
+                return {
+                    ...state,
+                    itemsInCart: [
+                        ...state.itemsInCart
+                    ],
+                    total: state.total - delItem.price
+                };
+            }   
             return {
                 ...state,
                 itemsInCart: [
                     ...state.itemsInCart.slice(0, itemIndex),
                     ...state.itemsInCart.slice(itemIndex + 1)
                 ],
-                total: state.total - delPrice*delCount
+                total: state.total - delItem.price
             }
 
         case 'CHECK_ITEM_IN_CART':

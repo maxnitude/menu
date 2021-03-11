@@ -1,15 +1,9 @@
 import React from 'react';
 import './menu-list-item.scss';
+import AddedButton from '../added-button/added-button';
 
-const MenuListItem = ({isItemInCart, menuItem, onAddToCard, classes, itemsInCart}) => {
+const MenuListItem = ({isItemInCart, menuItem, onAddToCard, itemInCart}) => {
     const {title, price, url} = menuItem;
-    let buttonTitle = "Add to cart";
-    if (itemsInCart) {
-        const {count, added} = itemsInCart;
-        if (added === true) {
-            buttonTitle = `Added: ${count}`;
-        }
-    }
     
     return (
             <li 
@@ -18,14 +12,17 @@ const MenuListItem = ({isItemInCart, menuItem, onAddToCard, classes, itemsInCart
                     <div className="menu__title">{title}</div>
                     <div className="menu__price-info">
                         <div className="menu__price">Price: <span>{price}$</span></div>
-                        <button 
-                            onClick={() => {
-                                onAddToCard();
-                                isItemInCart()
-                                }
-                            } 
-                            className={classes}
-                        >{buttonTitle}</button>
+                        { itemInCart ? 
+                            <AddedButton item={itemInCart}/> :     
+                            <button 
+                                    onClick={() => {
+                                        onAddToCard();
+                                        isItemInCart()
+                                        }
+                                    } 
+                                    className="menu__btn"
+                            >Add to cart</button>
+                        }
                     </div>
             </li>
     );

@@ -2,24 +2,22 @@ import React from 'react';
 import MenuListItem from '../menu-list-item/menu-list-item';
 import {connect} from 'react-redux';
 import WithRestoService from '../hoc/with-resto-service';
-import {menuLoaded, menuRequsted, addedToCard, isItemInCart} from '../../actions/index';
+import {menuLoaded, menuRequested, addedToCard, isItemInCart} from '../../actions/index';
 import Spinner from '../spinner/spinner';
 
 import './menu-list.scss';
 
 class MenuList extends React.Component {
     componentDidMount() {
-        this.props.menuRequsted();
+        this.props.menuRequested();
         const {RestoService} = this.props;
         RestoService.getMenuItems()
          .then(res => this.props.menuLoaded(res.menu));
     }
 
-    
     render() {
         const {menuItems, loading, addedToCard, isItemInCart, itemsInCart} = this.props;
 
-        
         if (loading) {
             return <Spinner/>
         }
@@ -28,18 +26,14 @@ class MenuList extends React.Component {
             <ul className="menu__list">
                 {
                     menuItems.map(menuItem => {
-                        let classes = "menu__btn";
                         const findItem = itemsInCart.find(item => item.id === menuItem.id) || null;
-                        if (findItem && findItem.added === true) {
-                            classes = "menu__btn__mod";
-                        }
+                        console.log(findItem);
                         return <MenuListItem 
                             key={menuItem.id} 
                             menuItem={menuItem}
                             onAddToCard={() => addedToCard(menuItem.id, menuItem.price)}
                             isItemInCart={() => isItemInCart(menuItem.id)}
-                            classes={classes}
-                            itemsInCart={findItem || null}
+                            itemInCart={findItem || null}
                             />
                     })
                 }
@@ -58,7 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     menuLoaded,
-    menuRequsted,
+    menuRequested,
     addedToCard,
     isItemInCart
 }

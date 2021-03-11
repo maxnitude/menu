@@ -24,5 +24,4 @@ const mapStateToProps = ({total}) => {
     }
 }
 
-
 export default connect(mapStateToProps)(AppHeader);

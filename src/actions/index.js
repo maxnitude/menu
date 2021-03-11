@@ -5,7 +5,7 @@ const menuLoaded = (newMenu) => {
     };
 };
 
-const menuRequsted = () => {
+const menuRequested = () => {
     return {
         type: 'MENU_REQUESTED',
     };
@@ -19,12 +19,10 @@ const addedToCard = (id, price) => {
     };
 };
 
-const deleteFromCard = (id, price, count) => {
+const deleteFromCard = (id) => {
     return {
         type: 'ITEM_REMOVE_FROM_CARD',
-        payload: id,
-        price: price,
-        count: count
+        payload: id
     };
 };
 
@@ -37,7 +35,7 @@ const isItemInCart = (id) => {
 
 export {
     menuLoaded,
-    menuRequsted,
+    menuRequested,
     addedToCard,
     deleteFromCard,
     isItemInCart
