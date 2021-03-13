@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/menu/static/css/main.1b3a8844.chunk.css",
+    "main.css": "/menu/static/css/main.84e092e5.chunk.css",
     "main.js": "/menu/static/js/main.d2973bca.chunk.js",
     "main.js.map": "/menu/static/js/main.d2973bca.chunk.js.map",
     "runtime~main.js": "/menu/static/js/runtime~main.4e21075e.js",
@@ -8,9 +8,9 @@
     "static/js/2.34a0e35d.chunk.js": "/menu/static/js/2.34a0e35d.chunk.js",
     "static/js/2.34a0e35d.chunk.js.map": "/menu/static/js/2.34a0e35d.chunk.js.map",
     "index.html": "/menu/index.html",
-    "precache-manifest.d198a9132e8cb8f23c0accaa0cf8190f.js": "/menu/precache-manifest.d198a9132e8cb8f23c0accaa0cf8190f.js",
+    "precache-manifest.7858fc3f351626aeca868ffc42511f00.js": "/menu/precache-manifest.7858fc3f351626aeca868ffc42511f00.js",
     "service-worker.js": "/menu/service-worker.js",
-    "static/css/main.1b3a8844.chunk.css.map": "/menu/static/css/main.1b3a8844.chunk.css.map",
+    "static/css/main.84e092e5.chunk.css.map": "/menu/static/css/main.84e092e5.chunk.css.map",
     "static/media/shopping-cart-solid.svg": "/menu/static/media/shopping-cart-solid.701d6d1d.svg"
   }
 }
