@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import {deleteFromCard} from '../../actions/index';
 import AddedButton from '../added-button/added-button'
 
-const CartTable = ({itemsInCart, deleteFromCard}) => {
+const CartTable = ({itemsInCart, total, deleteFromCard}) => {
     return (
         <>
-            <div className="cart__title">Ваш заказ:</div>
+            <div className="cart__title">{ total > 0 ? 'Ваш заказ:' : 'Корзина пуста'}</div>
             <div className="cart__list">
                 {
                     itemsInCart.map(item => {
@@ -30,9 +30,10 @@ const CartTable = ({itemsInCart, deleteFromCard}) => {
     );
 };
 
-const mapStateToProps = ({itemsInCart}) => {
+const mapStateToProps = (state) => {
     return {
-        itemsInCart
+        itemsInCart: state.itemsInCart,
+        total: state.total
     }
 }
 

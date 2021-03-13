@@ -1,11 +1,10 @@
-.menu {
-    &__list {
-        width: 1400px;
-        margin: 60px auto 0;
+.menu__list {
+        width: 1200px;
+        margin: 0 auto;
         padding: 50px;
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
-    }
+        background-color: rgb(240, 240, 240);
 }

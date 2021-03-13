@@ -1,15 +1,29 @@
-const menuLoaded = (newMenu) => {
-    return {
-        type: 'MENU_LOADED',
-        payload: newMenu
-    };
-};
-
 const menuRequested = () => {
     return {
         type: 'MENU_REQUESTED',
     };
 };
+
+const menuLoaded = (newMenu, tab) => {
+    return {
+        type: 'MENU_LOADED',
+        payload: newMenu,
+        tab: tab,
+    };
+};
+
+const categoriesLoaded = () => {
+    return {
+        type: 'CATEGORIES_LOADED',
+    };
+};
+
+const changeTab = (tab) => {
+    return {
+        type: 'CHANGE_TAB',
+        tab: tab,
+    };
+}
 
 const addedToCard = (id, price) => {
     return {
@@ -38,5 +52,7 @@ export {
     menuRequested,
     addedToCard,
     deleteFromCard,
-    isItemInCart
+    isItemInCart,
+    categoriesLoaded,
+    changeTab
 };

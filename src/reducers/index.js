@@ -1,8 +1,11 @@
 const initialState = {
-    menu: [],
+    allMenu: [],
+    visibleMenu: [],
     loading: true,
     itemsInCart: [],
-    total: 0
+    total: 0,
+    categories: [],
+    activeTab: 'Pizza'
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,19 +13,55 @@ const reducer = (state = initialState, action) => {
         case 'MENU_REQUESTED':
             return {
                 ...state,
-                menu: state.menu,
                 loading: true
             };
+        
         case 'MENU_LOADED':
+            const allMenu = action.payload;
+            let tab = action.tab;
+            if (tab === null) {
+                tab = state.activeTab;
+            }
+            const visibleMenu = [];
+            allMenu.forEach(item => {  
+                if (state.categories.indexOf(item.category) === -1) {
+                    state.categories.push(item.category);
+                };
+            })
+
+            allMenu.forEach(item => {
+                if (item.category === tab) {
+                    visibleMenu.push(item);
+                }
+            })
+
             return {
                 ...state,
-                menu: action.payload,
-                loading: false
+                allMenu: action.payload,
+                visibleMenu: visibleMenu,
+                loading: false,
+                categories: state.categories,
+                activeTab: tab,
             };
+
+        case 'CHANGE_TAB':
+            const touch = action.tab;
+            const touchMenu = [];
+            state.allMenu.forEach(item => {
+                if (item.category === touch) {
+                    touchMenu.push(item);
+                }
+            })
+            return {
+                ...state,
+                visibleMenu: [...touchMenu],
+                activeTab: touch,
+            };
+
         case 'ITEM_ADD_TO_CARD':
             const id = action.payload;
             const price = action.price;
-            const item = state.menu.find(item => item.id === id);
+            const item = state.visibleMenu.find(item => item.id === id);
             const existingItem = state.itemsInCart.find(item => item.id === id);
             if (existingItem) {
                 existingItem.count++;
@@ -35,7 +74,6 @@ const reducer = (state = initialState, action) => {
                     total: state.total + price
                 };
             }
-
             const newItem = {
                 title: item.title,
                 price: item.price,
@@ -43,7 +81,6 @@ const reducer = (state = initialState, action) => {
                 id: item.id,
                 count: 1,
             }   
-            
             return {
                 ...state,
                 itemsInCart: [
@@ -80,8 +117,6 @@ const reducer = (state = initialState, action) => {
             const idy = action.payload;
             const itemInCart = state.itemsInCart.find(item => item.id === idy);
             itemInCart.added = true;
-            console.log(itemInCart);
-            console.log(state.itemsInCart);
             return {
                 ...state,
             };

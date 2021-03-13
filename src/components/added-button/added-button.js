@@ -6,7 +6,6 @@ import './added-button.scss';
 const AddedButton = ({isItemInCart, addedToCard, deleteFromCard, item}) => {
  
     const {count, price, id} = item;
-    console.log(id);
 
     return (
         <div className="added-btn">
