@@ -65,7 +65,6 @@ const reducer = (state = initialState, action) => {
             const existingItem = state.itemsInCart.find(item => item.id === id);
             if (existingItem) {
                 existingItem.count++;
-                // console.log(existingItem.count);
                 return {
                     ...state,
                     itemsInCart: [
@@ -91,9 +90,9 @@ const reducer = (state = initialState, action) => {
             };
 
         case 'ITEM_REMOVE_FROM_CARD':
-            const idx = action.payload;
-            const itemIndex = state.itemsInCart.findIndex(item => item.id === idx);
-            const delItem = state.itemsInCart.find(item => item.id === idx); 
+            const delId = action.payload;
+            const itemIndex = state.itemsInCart.findIndex(item => item.id === delId);
+            const delItem = state.itemsInCart.find(item => item.id === delId); 
             if (delItem.count > 1) {
                 delItem.count--;
                 return {
@@ -103,7 +102,15 @@ const reducer = (state = initialState, action) => {
                     ],
                     total: state.total - delItem.price
                 };
-            }   
+            } else if (delItem.count === 0) {
+                return {
+                    ...state,
+                    itemsInCart: [
+                        ...state.itemsInCart.slice(0, itemIndex),
+                        ...state.itemsInCart.slice(itemIndex + 1)
+                    ],
+                };
+            } 
             return {
                 ...state,
                 itemsInCart: [
@@ -111,7 +118,20 @@ const reducer = (state = initialState, action) => {
                     ...state.itemsInCart.slice(itemIndex + 1)
                 ],
                 total: state.total - delItem.price
-            }
+            };
+
+        case 'PRODUCT_REMOVE_FROM_CARD':
+            const productId = action.payload;
+            const productIndex = state.itemsInCart.findIndex(item => item.id === productId);
+            const delProduct = state.itemsInCart.find(item => item.id === productId); 
+            return {
+                ...state,
+                itemsInCart: [
+                    ...state.itemsInCart.slice(0, productIndex),
+                    ...state.itemsInCart.slice(productIndex + 1)
+                ],
+                total: state.total - delProduct.price*delProduct.count
+            };
 
         case 'CHECK_ITEM_IN_CART':
             const idy = action.payload;
@@ -120,6 +140,21 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
             };
+
+        case 'CHANGE_INPUT':
+            const idz = action.payload;
+            const inputValue = action.value;
+            const inputPrice = action.price;
+            const itemInCarts = state.itemsInCart.find(item => item.id === idz);
+            const prevCount = itemInCarts.count;
+            itemInCarts.count = inputValue;
+            return {
+                ...state,
+                itemsInCart: [
+                    ...state.itemsInCart
+                ],
+                total: state.total + inputPrice*inputValue - inputPrice*prevCount
+            };    
 
         default:
             return state;

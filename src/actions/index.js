@@ -40,12 +40,28 @@ const deleteFromCard = (id) => {
     };
 };
 
+const deleteProduct = (id) => {
+    return {
+        type: 'PRODUCT_REMOVE_FROM_CARD',
+        payload: id,
+    };
+}
+
 const isItemInCart = (id) => {
     return {
         type: 'CHECK_ITEM_IN_CART',
         payload: id
     };
 };
+
+const changeInput = (id, price, value) => {
+    return {
+        type: 'CHANGE_INPUT',
+        payload: id,
+        value: value,
+        price: price,
+    };
+}
 
 export {
     menuLoaded,
@@ -54,5 +70,7 @@ export {
     deleteFromCard,
     isItemInCart,
     categoriesLoaded,
-    changeTab
+    changeTab,
+    changeInput,
+    deleteProduct
 };

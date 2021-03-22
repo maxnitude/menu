@@ -4,17 +4,20 @@
     100% { transform: rotate(360deg) }
   }
   .spinner {
-    width: 100%;
+    width: 1200px;
     height: 100vh;
+    margin: 0 auto;
+    padding-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f0f0f0;
     &__eclipse {
       width: 200px;
       height: 200px;
       display: inline-block;
       overflow: hidden;
-      background-color: rgb(240, 240, 240);
+      
     }
   }
   

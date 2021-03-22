@@ -1,10 +1,10 @@
 import React from 'react';
 import './cart-table.scss';
 import {connect} from 'react-redux';
-import {deleteFromCard} from '../../actions/index';
+import {deleteProduct} from '../../actions/index';
 import AddedButton from '../added-button/added-button'
 
-const CartTable = ({itemsInCart, total, deleteFromCard}) => {
+const CartTable = ({itemsInCart, total, deleteProduct}) => {
     return (
         <>
             <div className="cart__title">{ total > 0 ? 'Ваш заказ:' : 'Корзина пуста'}</div>
@@ -15,12 +15,16 @@ const CartTable = ({itemsInCart, total, deleteFromCard}) => {
 
                         return (
                             <div key={id} className="cart__item">
-                            <img src={url} className="cart__item-img" alt={title}></img>
-                            <div className="cart__item-title">{title}</div>
-                            <AddedButton item={item}/>
-                            <div className="cart__item-title">{count} x {price}$</div>
-                            <div className="cart__item-price">{count*price}$</div>
-                            <div onClick={() => deleteFromCard(id, price, count)} className="cart__close">&times;</div>
+                                <div className="cart__item-img">
+                                    <img src={url} className="cart__item-img__source" alt={title}></img>
+                                </div>
+                                <div className="cart__item-description">
+                                    <div className="cart__item-title">{title}</div>
+                                    <div className="cart__item-price">{price}$/count</div>
+                                    <AddedButton item={item}/>
+                                    <div className="cart__item-price__total">{count*price}$</div>
+                                    <div onClick={() => deleteProduct(id)} className="cart__item-delete"></div>
+                                </div>
                             </div>
                         )
                     })
@@ -38,7 +42,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    deleteFromCard
+    deleteProduct
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartTable);

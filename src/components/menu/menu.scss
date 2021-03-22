@@ -20,7 +20,29 @@
             &.active {
                 background-color: white;
                 color: #000;
+               
+                @media screen and (max-width: 576px) {
+                    position: relative;
+                    background-color: rgb(233, 223, 223);
+                    &::after {
+                        content: '+';
+                        position: absolute;
+                        text-align: center;
+                        width: 20px;
+                        height: 20px;
+                        right: 30px;
+                        top: 17px;
+                    }
+                }
             }
         }
+        @media screen and (max-width: 576px) {
+            width: 100vw; 
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 576px) {
+        width: 100vw; 
     }
 }

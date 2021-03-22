@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {deleteFromCard, addedToCard, isItemInCart} from '../../actions/index';
+import {deleteFromCard, addedToCard, isItemInCart, changeInput} from '../../actions/index';
 import './added-button.scss';
 
-const AddedButton = ({isItemInCart, addedToCard, deleteFromCard, item}) => {
+const AddedButton = ({isItemInCart, addedToCard, deleteFromCard, item, changeInput}) => {
  
     const {count, price, id} = item;
 
@@ -17,8 +17,27 @@ const AddedButton = ({isItemInCart, addedToCard, deleteFromCard, item}) => {
                 } 
             >-</button>
             <div className="added-btn__title">
-                <span >Added:</span>
-                <span >{count}</span>
+                {/* <span >Added:</span> */}
+                <input 
+                    className="added-btn__input" 
+                    type="text" 
+                    value={count}
+                    onChange={() => {}} //?????
+                    onInput={(e) => {
+                        let value = e.target.value;
+                        let numberValue = Number(value);
+                            if (!numberValue && numberValue !== 0) {
+                                changeInput(id, price, 1)
+                            } else if (numberValue < 0) {
+                                changeInput(id, price, 1)
+                            } else if (numberValue > 49) {
+                                changeInput(id, price, 49)
+                            } else {
+                                changeInput(id, price, numberValue)
+                            }                       
+                        }
+                    }
+                ></input>
             </div> 
             <button 
                 className="added-btn__plus"
@@ -42,6 +61,7 @@ const mapStateToProps = ({itemsInCart}) => {
 const mapDispatchToProps = {
     deleteFromCard,
     addedToCard,
-    isItemInCart
+    isItemInCart,
+    changeInput
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddedButton);

@@ -29,6 +29,13 @@
 			"id": "51b3864c53cb"
 		},
 		{
+			"title": "Pizza Zaragoza",
+			"price": 13,
+			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/picca/picca-saragosa-na-tonkom-teste-medium-rectangular-ad577ce8bf10425881c7479516c1b7d2.jpeg",
+			"category": "Pizza",
+			"id": "69ef4c434011"
+		},
+		{
 			"title": "Pizza Hawaii",
 			"price": 14,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/picca/picca-gavajjskaja-na-tonkom-teste-30-sm-medium-rectangular-8bb48d654a474cb4bad28b78bb240788.jpeg",
@@ -51,14 +58,14 @@
 		},
 		{
 			"title": "Pizza Texas",
-			"price": 14,
+			"price": 13,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/picca/picca-tekhas-na-tonkom-teste-30-sm-medium-rectangular-0b1ec0c0be314c15bcbd06542ac839c7.jpeg",
 			"category": "Pizza",
 			"id": "7a5cc26a8453"
 		},
 		{
 			"title": "Roll Philadelphia",
-			"price": 8,
+			"price": 10,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi/roll-filadelfija-medium-rectangular-b95e4f9fa26c44a19031670e448374fa.jpeg",
 			"category": "Sushi",
 			"id": "601538e3ff77"
@@ -78,15 +85,22 @@
 			"id": "488d49f1a666"
 		},
 		{
+			"title": "Roll Fish Combo",
+			"price": 10,
+			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi/zapechennyjj-roll-s-lososem-ugrem-i-tigrovojj-krevetkojj-8-sht-medium-rectangular-2fdac4588d6944d79d92a3a110cbdbe0.jpeg",
+			"category": "Sushi",
+			"id": "a665fc697b05"
+		},
+		{
 			"title": "Roll Hot Crab",
-			"price": 8,
+			"price": 11,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/roll-gorjachijj-krab-medium-rectangular-a8fd2022a1e049c0a93e564318613a39.jpeg",
 			"category": "Sushi",
 			"id": "b1769312ed31"
 		},
 		{
 			"title": "Roll Beacon Dream",
-			"price": 11,
+			"price": 9,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi/roll-s-bekonom-medium-rectangular-216595e804e74ce8a52d23ebe7df67c2.jpeg",
 			"category": "Sushi",
 			"id": "305a59089353"
@@ -107,14 +121,14 @@
 		},
 		{
 			"title": "Roll Tuna and Shrimp",
-			"price": 13,
+			"price": 16,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi/roll-s-tuncom-i-krevetkojj-medium-rectangular-a9a86ce7acc04b6c9c1213292f0fc405.jpeg",
 			"category": "Sushi",
 			"id": "de39f94c7631"
 		},
 		{
 			"title": "BBQ-burger",
-			"price": 10,
+			"price": 11,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/stritfud/bbq-burger-medium-rectangular-5f5945d7f99b444c92d27b14613d69b2.jpeg",
 			"category": "Streetfood",
 			"id": "3cb90e2cdbd3"
@@ -135,7 +149,7 @@
 		},
 		{
 			"title": "Cheeseburger",
-			"price": 10,
+			"price": 12,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/stritfud/chizburger-medium-rectangular-d2af804f11fc41e8953e3b341a6d49aa.jpeg",
 			"category": "Streetfood",
 			"id": "2d0a385fedaf"
@@ -149,7 +163,7 @@
 		},
 		{
 			"title": "Burrito",
-			"price": 10,
+			"price": 9,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/stritfud/burrito-s-govjadinojj-medium-rectangular-14055f0eb6024d42853fa3be007c8546.jpeg",
 			"category": "Streetfood",
 			"id": "7abeb08b969b"
@@ -162,6 +176,13 @@
 			"id": "bfdd1e248fd8"
 		},
 		{
+			"title": "Shawarma",
+			"price": 9,
+			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/stritfud/shaverma-s-kuricejj-medium-rectangular-a3e97a0ff113495bb87b023fac10bb38.jpeg",
+			"category": "Streetfood",
+			"id": "12e1fababa6a"
+		},
+		{
 			"title": "Fresh roll",
 			"price": 11,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/stritfud/fresh-roll-s-kuricejj-medium-rectangular-9b769128187148c09d18922011014c55.jpeg",
@@ -170,7 +191,7 @@
 		},
 		{
 			"title": "Buckwheat noodles with beef",
-			"price": 11,
+			"price": 12,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/govjadina-blehk-pepper-s-grechnevojj-lapshojj-medium-rectangular-14b74bd51e9a425390edcc3ba0545d0f.jpeg",
 			"category": "WOK",
 			"id": "ea353b55b00d"
@@ -198,14 +219,14 @@
 		},
 		{
 			"title": "Rice with teriyaki chicken",
-			"price": 13,
+			"price": 10,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/kurica-terijaki-s-risom-medium-rectangular-78f92bd3548c41c89b6a71c916ff6e8f.jpeg",
 			"category": "WOK",
 			"id": "0fb7b425b90a"
 		},
 		{
 			"title": "Udon with seafood",
-			"price": 11,
+			"price": 15,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/moreprodukty-s-lapshojj-udon-medium-rectangular-06cc1849e6484d65a0983259c71037f8.jpeg",
 			"category": "WOK",
 			"id": "21aa1e3e77e1"
@@ -218,8 +239,15 @@
 			"id": "832edeb46a51"
 		},
 		{
+			"title": "Rice with vegetables",
+			"price": 9,
+			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/ris-s-ovoshhami-po-kitajjski-medium-rectangular-bc038993d6a74fd78b75b79a7c14af87.jpeg",
+			"category": "WOK",
+			"id": "7e9bd49818fa"
+		},
+		{
 			"title": "Rice with beef and eggs",
-			"price": 11,
+			"price": 14,
 			"url": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/ris-s-govjadinojj-i-jajjcom-medium-rectangular-bdaac7605d42427aa158b87832bd79ed.jpeg",
 			"category": "WOK",
 			"id": "5039a247fec0"
