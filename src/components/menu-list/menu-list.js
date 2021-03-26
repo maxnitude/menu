@@ -17,7 +17,7 @@ class MenuList extends React.Component {
                             menuItem={menuItem}
                             onAddToCard={() => addedToCard(menuItem.id, menuItem.price)}
                             isItemInCart={() => isItemInCart(menuItem.id)}
-                            itemInCart={findItem || null}
+                            itemInCart={findItem}
                             />
                     })
                 }

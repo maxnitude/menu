@@ -1,4 +1,5 @@
 .added-btn {
+    position: relative;
     display: flex;
     width: 120px;
     height: 40px;
@@ -51,5 +52,18 @@
         font-size: 16px;
         outline: 0;
         cursor: pointer;
+    }
+
+    &__inactive {
+        background-color: #9cd1aa;
+        cursor: auto;
+    }
+    &__alert-message {
+        position: absolute;
+        top: 40px;
+        color: red;
+        &__inactive {
+            display: none;
+        }
     }
 }

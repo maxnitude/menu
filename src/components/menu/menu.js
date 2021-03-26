@@ -16,7 +16,14 @@ class Menu extends React.Component {
     }
 
     render() {
-        const {categories, menuItems, loading, addedToCard, isItemInCart, itemsInCart, changeTab, activeTab} = this.props;
+        const {categories, 
+            menuItems, 
+            loading, 
+            addedToCard, 
+            isItemInCart, 
+            itemsInCart, 
+            changeTab, 
+            activeTab} = this.props;
         
         if (loading) {
             return <Spinner/>
@@ -26,15 +33,14 @@ class Menu extends React.Component {
             <div className="menu">
                 <ul className="menu__tabs">
                     {
-                        categories.map(item => {
+                        categories.map((item, index) => {
                             return (
                                 <li 
                                     className={activeTab === item ? "menu__tabs-item active" : "menu__tabs-item"}
-                                    key={item[1]} //можно и получше придумать
+                                    key={index} //¯\_(ツ)_/¯
                                     onClick={() => changeTab(item)}
                                     >{item}
-                                </li>
-                                
+                                </li> 
                             )
                         })
                     }
@@ -43,7 +49,8 @@ class Menu extends React.Component {
                     menuItems={menuItems}
                     addedToCard={addedToCard} 
                     isItemInCart={isItemInCart}
-                    itemsInCart={itemsInCart}/>
+                    itemsInCart={itemsInCart}
+                />
             </div>
             
         )

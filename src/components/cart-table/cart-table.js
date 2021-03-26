@@ -7,7 +7,7 @@ import AddedButton from '../added-button/added-button'
 const CartTable = ({itemsInCart, total, deleteProduct}) => {
     return (
         <>
-            <div className="cart__title">{ total > 0 ? 'Ваш заказ:' : 'Корзина пуста'}</div>
+            <div className="cart__title">{ total > 0 ? 'Your order:' : 'Cart is empty'}</div>
             <div className="cart__list">
                 {
                     itemsInCart.map(item => {

@@ -120,7 +120,7 @@ const reducer = (state = initialState, action) => {
                 total: state.total - delItem.price
             };
 
-        case 'PRODUCT_REMOVE_FROM_CARD':
+        case 'PRODUCT_REMOVE_FROM_CARD':    
             const productId = action.payload;
             const productIndex = state.itemsInCart.findIndex(item => item.id === productId);
             const delProduct = state.itemsInCart.find(item => item.id === productId); 
@@ -142,10 +142,10 @@ const reducer = (state = initialState, action) => {
             };
 
         case 'CHANGE_INPUT':
-            const idz = action.payload;
+            const changedId = action.payload;
             const inputValue = action.value;
             const inputPrice = action.price;
-            const itemInCarts = state.itemsInCart.find(item => item.id === idz);
+            const itemInCarts = state.itemsInCart.find(item => item.id === changedId);
             const prevCount = itemInCarts.count;
             itemInCarts.count = inputValue;
             return {
