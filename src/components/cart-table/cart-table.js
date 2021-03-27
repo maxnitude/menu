@@ -2,12 +2,14 @@ import React from 'react';
 import './cart-table.scss';
 import {connect} from 'react-redux';
 import {deleteProduct} from '../../actions/index';
-import AddedButton from '../added-button/added-button'
+import AddedButton from '../added-button/added-button';
+import emptyCart from './empty_cart.png'
 
-const CartTable = ({itemsInCart, total, deleteProduct}) => {
+const CartTable = ({itemsInCart, deleteProduct}) => {
     return (
         <>
-            <div className="cart__title">{ total > 0 ? 'Your order:' : 'Cart is empty'}</div>
+            <div className="cart__title">{ itemsInCart.length > 0 ? 'Your order:' : 'Cart is empty'}</div>
+            <img className={ itemsInCart.length > 0 ? "cart__img__none" : "cart__img"} src={emptyCart} alt='Empty cart'></img>
             <div className="cart__list">
                 {
                     itemsInCart.map(item => {
@@ -37,7 +39,6 @@ const CartTable = ({itemsInCart, total, deleteProduct}) => {
 const mapStateToProps = (state) => {
     return {
         itemsInCart: state.itemsInCart,
-        total: state.total
     }
 }
 

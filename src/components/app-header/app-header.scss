@@ -3,7 +3,7 @@
     top: 0;
     left:50%;
     transform: translateX(-50%);
-    background-color: rgb(102, 160, 110);
+    background-color: rgb(72, 105, 91);
     height: 60px;
     width: 1200px;
     display: flex;
@@ -11,26 +11,71 @@
     align-items: center;
     padding: 0 50px;
     z-index: 1;
+    @media screen and (max-width: 576px) {
+        width: 100vw; 
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
     &:first-child {
         margin-right: 40px;
     }
     &__link {
         display: flex;
+        align-items: center;
         font-size: 18px;
-        color: #fff;
         text-decoration: none;
+        &-title {
+            display: block;
+            height: 45px;
+            width: 70px;
+            line-height: 45px;
+            background: linear-gradient(to top left, rgb(62, 219, 14), rgb(5, 233, 195));
+            border-radius: 7px;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+        }
     }
     &__link:first-child {
         margin-right: 40px;
+        color: white;
+    }
+
+    &__link:nth-child(2) {
+        max-width: 200px;
+        justify-content: center;
+        background: linear-gradient(to top left, rgb(62, 219, 14), rgb(5, 233, 195));
+        color: white;
+        padding: 5px 10px;
+        border-radius: 7px;
+        height: 45px;
     }
 
     &__cart {
         width: 20px;
-        margin-right: 10px;
+        margin-right: 5px;
     }
 
-    @media screen and (max-width: 576px) {
-        width: 100vw; 
-        justify-content: space-between;
+    &__count {
+        display: block;
+        min-width: 30px;
+    }
+
+    &__price {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        min-width: 62px;
+        padding-right: 10px;
+        &::after {
+            position: absolute;
+            content: '';
+            height: 35px;
+            width: 1px;
+            background-color: white;
+            right: 4px;
+            top: -5px;
+        }
     }
 }

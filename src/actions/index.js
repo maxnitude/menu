@@ -61,7 +61,13 @@ const changeInput = (id, price, value) => {
         value: value,
         price: price,
     };
-}
+};
+
+const toggleMobMenu = () => {
+    return {
+        type: 'TOGGLE_MOB_MENU',
+    };
+};
 
 export {
     menuLoaded,
@@ -72,5 +78,6 @@ export {
     categoriesLoaded,
     changeTab,
     changeInput,
-    deleteProduct
+    deleteProduct,
+    toggleMobMenu
 };

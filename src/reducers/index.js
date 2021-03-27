@@ -4,8 +4,10 @@ const initialState = {
     loading: true,
     itemsInCart: [],
     total: 0,
+    totalCount: 0,
     categories: [],
-    activeTab: 'Pizza'
+    activeTab: 'Pizza',
+    isMobMenu: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -70,7 +72,8 @@ const reducer = (state = initialState, action) => {
                     itemsInCart: [
                         ...state.itemsInCart
                     ],
-                    total: state.total + price
+                    total: state.total + price,
+                    totalCount: state.totalCount + 1,
                 };
             }
             const newItem = {
@@ -86,7 +89,8 @@ const reducer = (state = initialState, action) => {
                     ...state.itemsInCart,
                    newItem
                 ],
-                total: state.total+price
+                total: state.total+price,
+                totalCount: state.totalCount + 1,
             };
 
         case 'ITEM_REMOVE_FROM_CARD':
@@ -100,7 +104,8 @@ const reducer = (state = initialState, action) => {
                     itemsInCart: [
                         ...state.itemsInCart
                     ],
-                    total: state.total - delItem.price
+                    total: state.total - delItem.price,
+                    totalCount: state.totalCount - 1,
                 };
             } else if (delItem.count === 0) {
                 return {
@@ -109,6 +114,7 @@ const reducer = (state = initialState, action) => {
                         ...state.itemsInCart.slice(0, itemIndex),
                         ...state.itemsInCart.slice(itemIndex + 1)
                     ],
+                    totalCount: state.totalCount - 1,
                 };
             } 
             return {
@@ -117,7 +123,8 @@ const reducer = (state = initialState, action) => {
                     ...state.itemsInCart.slice(0, itemIndex),
                     ...state.itemsInCart.slice(itemIndex + 1)
                 ],
-                total: state.total - delItem.price
+                total: state.total - delItem.price,
+                totalCount: state.totalCount - 1,
             };
 
         case 'PRODUCT_REMOVE_FROM_CARD':    
@@ -130,12 +137,13 @@ const reducer = (state = initialState, action) => {
                     ...state.itemsInCart.slice(0, productIndex),
                     ...state.itemsInCart.slice(productIndex + 1)
                 ],
-                total: state.total - delProduct.price*delProduct.count
+                total: state.total - delProduct.price*delProduct.count,
+                totalCount: state.totalCount - delProduct.count,
             };
 
         case 'CHECK_ITEM_IN_CART':
-            const idy = action.payload;
-            const itemInCart = state.itemsInCart.find(item => item.id === idy);
+            const checkId = action.payload;
+            const itemInCart = state.itemsInCart.find(item => item.id === checkId);
             itemInCart.added = true;
             return {
                 ...state,
@@ -153,8 +161,15 @@ const reducer = (state = initialState, action) => {
                 itemsInCart: [
                     ...state.itemsInCart
                 ],
-                total: state.total + inputPrice*inputValue - inputPrice*prevCount
-            };    
+                total: state.total + inputPrice*inputValue - inputPrice*prevCount,
+                totalCount: state.totalCount + inputValue - prevCount,
+            };  
+
+        case 'TOGGLE_MOB_MENU': 
+            return {
+                    ...state,
+                    isMobMenu: !state.isMobMenu,
+                };
 
         default:
             return state;

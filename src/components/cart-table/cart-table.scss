@@ -2,7 +2,7 @@
     padding-top: 80px;
     padding-bottom: 50px;
     min-height: 100vh;
-    background-color: rgb(240, 240, 240);
+    background-color: white;
     width: 1200px;
     margin: 0 auto;
     &__title {
@@ -10,6 +10,13 @@
         color: rgb(22, 21, 21);
         text-align: center;
         font-weight: 300;
+    }
+    &__img {
+        display: block;
+        margin: 20% auto;
+        &__none {
+            display: none;
+        }
     }
     &__list {
         width: 100%;
@@ -28,6 +35,8 @@
         @media screen and (max-width: 576px) {
             width: 90vw;
             height: 180px;
+            padding: 5px;
+            padding-left: 10px;
         }
 
         &-description {
@@ -80,26 +89,23 @@
 
         &-img {
             display: flex;
-            align-items: center;
             height: 100%;
-            width: 150px;
-            @media screen and (max-width: 576px) {
-                align-items: flex-start;
+            width: 50%;
+            @media screen and (max-width: 425px) {
+                height: 60%;
+                width: 50%;
             }
         }
         &-img__source {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            @media screen and (max-width: 576px) {
-                width: 150px;
-            }
         }
         
         &-delete {
             width: 25px;
             height: 25px;
-            background-image: url("./delete.png");
+            background-image: url("./delete.svg");
             background-size: cover;
             cursor: pointer;
             @media screen and (max-width: 576px) {
