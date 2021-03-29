@@ -10,6 +10,7 @@ created using create-react-app (https://github.com/facebook/create-react-app)
 * function and class components 
 
 full
+
 ![image](https://user-images.githubusercontent.com/60435090/112803425-edcdd980-907b-11eb-8ff1-700f3a87a44f.png)
 
 mobile 
